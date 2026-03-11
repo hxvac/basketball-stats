@@ -71,5 +71,25 @@ border-radius:6px;
 }
 
 button:hover{
-opacity:.85;
+opacity:.9;
+}
+
+.team-highs{
+background:#fafafa;
+margin-top:20px;
+padding:15px;
+border-radius:8px;
+}
+
+.team-highs h3{
+margin-top:0;
+color:#800000;
+}
+
+.high-row{
+display:flex;
+justify-content:space-between;
+padding:6px 0;
+border-bottom:1px solid #eee;
+font-weight:bold;
 }
