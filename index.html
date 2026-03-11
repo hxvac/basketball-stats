@@ -15,12 +15,11 @@
 
 <div class="container">
 
-<!-- BOX SCORE -->
 <div class="boxscore">
 
 <h2>Girard Trojans</h2>
 
-<table id="statTable">
+<table>
 
 <thead>
 <tr>
@@ -37,11 +36,11 @@
 </tr>
 </thead>
 
-<tbody id="playerRows">
-</tbody>
+<tbody id="playerRows"></tbody>
 
 <tfoot>
-<tr id="totalsRow">
+
+<tr>
 <td colspan="2">TOTALS</td>
 <td id="tPTS">0</td>
 <td id="tFG">0-0</td>
@@ -52,6 +51,7 @@
 <td id="tPF">0</td>
 <td id="tTO">0</td>
 </tr>
+
 </tfoot>
 
 </table>
@@ -59,7 +59,6 @@
 </div>
 
 
-<!-- CONTROL PANEL -->
 <div class="controls">
 
 <h2>Stat Controls</h2>
@@ -77,8 +76,9 @@
 
 <button onclick="reb()">REB</button>
 <button onclick="ast()">AST</button>
+
 <button onclick="pf()">PF</button>
-<button onclick="to()">TO</button>
+<button onclick="turnover()">TO</button>
 
 </div>
 
