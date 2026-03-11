@@ -1,1 +1,90 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+<title>Girard Trojans Stats</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<img src="trojan.png" class="logo">
+<h1>Girard Trojans Game Tracker</h1>
+</header>
+
+<div class="container">
+
+<!-- BOX SCORE -->
+<div class="boxscore">
+
+<h2>Girard Trojans</h2>
+
+<table id="statTable">
+
+<thead>
+<tr>
+<th>#</th>
+<th>Player</th>
+<th>PTS</th>
+<th>FG</th>
+<th>3FG</th>
+<th>FT</th>
+<th>REB</th>
+<th>A</th>
+<th>PF</th>
+<th>TO</th>
+</tr>
+</thead>
+
+<tbody id="playerRows">
+</tbody>
+
+<tfoot>
+<tr id="totalsRow">
+<td colspan="2">TOTALS</td>
+<td id="tPTS">0</td>
+<td id="tFG">0-0</td>
+<td id="t3FG">0-0</td>
+<td id="tFT">0-0</td>
+<td id="tREB">0</td>
+<td id="tAST">0</td>
+<td id="tPF">0</td>
+<td id="tTO">0</td>
+</tr>
+</tfoot>
+
+</table>
+
+</div>
+
+
+<!-- CONTROL PANEL -->
+<div class="controls">
+
+<h2>Stat Controls</h2>
+
+<select id="playerSelect"></select>
+
+<button onclick="add2()">+2 PTS</button>
+<button onclick="add3()">+3 PTS</button>
+
+<button onclick="fgMiss()">FG Miss</button>
+<button onclick="threeMiss()">3PT Miss</button>
+
+<button onclick="ftMake()">FT Make</button>
+<button onclick="ftMiss()">FT Miss</button>
+
+<button onclick="reb()">REB</button>
+<button onclick="ast()">AST</button>
+<button onclick="pf()">PF</button>
+<button onclick="to()">TO</button>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
