@@ -1,7 +1,7 @@
 body{
-font-family: Arial;
-background:#f4f4f4;
+font-family:Arial;
 margin:0;
+background:#f4f4f4;
 }
 
 header{
@@ -19,7 +19,7 @@ height:60px;
 
 .container{
 display:flex;
-gap:30px;
+gap:25px;
 padding:20px;
 }
 
@@ -42,7 +42,7 @@ width:100%;
 border-collapse:collapse;
 }
 
-th, td{
+th,td{
 padding:8px;
 border-bottom:1px solid #ddd;
 text-align:center;
@@ -61,10 +61,15 @@ font-weight:bold;
 
 button{
 width:100%;
-margin-top:8px;
 padding:10px;
+margin-top:8px;
 background:#caa200;
 border:none;
 font-weight:bold;
 cursor:pointer;
+border-radius:6px;
+}
+
+button:hover{
+opacity:.85;
 }
