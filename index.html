@@ -2,7 +2,7 @@
 <html>
 
 <head>
-<title>Girard Trojans Game Tracker</title>
+<title>Girard vs Osage City Game Tracker</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -10,8 +10,27 @@
 
 <header>
 <img src="trojan.png" class="logo">
-<h1>Girard Trojans Game Tracker</h1>
+<h1>Girard Trojans vs Osage City Indians</h1>
 </header>
+
+<div class="scoreboard">
+
+<div class="teamScore">
+<h2>Girard</h2>
+<div id="girardScore">0</div>
+</div>
+
+<div class="gameInfo">
+<div id="quarter">Q1</div>
+</div>
+
+<div class="teamScore">
+<h2>Osage City</h2>
+<div id="osageScore">0</div>
+</div>
+
+</div>
+
 
 <div class="container">
 
@@ -36,55 +55,49 @@
 </tr>
 </thead>
 
-<tbody id="playerRows"></tbody>
-
-<tfoot>
-
-<tr>
-<td colspan="2">TOTALS</td>
-<td id="tPTS">0</td>
-<td id="tFG">0-0</td>
-<td id="t3FG">0-0</td>
-<td id="tFT">0-0</td>
-<td id="tREB">0</td>
-<td id="tAST">0</td>
-<td id="tPF">0</td>
-<td id="tTO">0</td>
-</tr>
-
-</tfoot>
+<tbody id="girardRows"></tbody>
 
 </table>
 
-
-<div class="team-highs">
-
-<h3>Girard Team Highs</h3>
-
-<div class="high-row">
-<span>PTS</span>
-<span id="highPTS">-</span>
 </div>
 
-<div class="high-row">
-<span>REB</span>
-<span id="highREB">-</span>
-</div>
 
-<div class="high-row">
-<span>AST</span>
-<span id="highAST">-</span>
-</div>
+<div class="boxscore">
+
+<h2>Osage City Indians</h2>
+
+<table>
+
+<thead>
+<tr>
+<th>#</th>
+<th>Player</th>
+<th>PTS</th>
+<th>FG</th>
+<th>3FG</th>
+<th>FT</th>
+<th>REB</th>
+<th>A</th>
+<th>PF</th>
+<th>TO</th>
+</tr>
+</thead>
+
+<tbody id="osageRows"></tbody>
+
+</table>
 
 </div>
-
-</div>
-
 
 
 <div class="controls">
 
 <h2>Stat Controls</h2>
+
+<select id="teamSelect">
+<option value="girard">Girard Trojans</option>
+<option value="osage">Osage City Indians</option>
+</select>
 
 <select id="playerSelect"></select>
 
