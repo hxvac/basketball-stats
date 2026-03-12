@@ -1,168 +1,147 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Girard vs Osage City Game Tracker</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Girard vs Osage City Game Tracker</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>
-<img src="trojan.png" class="logo">
-<h1>Girard Trojans vs Osage City Indians</h1>
-</header>
+  <header>
+    <img src="trojan.png" class="logo" alt="Girard Trojans Logo">
+    <h1>Girard Trojans vs Osage City Indians</h1>
+  </header>
 
-<div class="scoreboard">
+  <div class="scoreboard">
+    <div class="teamScore">
+      <h2>Girard</h2>
+      <div id="girardScore">0</div>
+      <div class="record">19-4</div>
+    </div>
 
-<div class="teamScore">
-<h2>Girard</h2>
-<div id="girardScore">0</div>
-</div>
+    <div class="gameInfo">
+      <div id="quarter">Q1</div>
+      <div class="matchup">State Tournament</div>
+    </div>
 
-<div class="gameInfo">
-<div id="quarter">Q1</div>
-</div>
+    <div class="teamScore">
+      <h2>Osage City</h2>
+      <div id="osageScore">0</div>
+      <div class="record">21-3</div>
+    </div>
+  </div>
 
-<div class="teamScore">
-<h2>Osage City</h2>
-<div id="osageScore">0</div>
-</div>
+  <div class="container">
 
-</div>
+    <div class="boxscore">
+      <h2>Girard Trojans</h2>
 
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Player</th>
+            <th>PTS</th>
+            <th>FG</th>
+            <th>3FG</th>
+            <th>FT</th>
+            <th>REB</th>
+            <th>A</th>
+            <th>PF</th>
+            <th>TO</th>
+          </tr>
+        </thead>
+        <tbody id="girardRows"></tbody>
+      </table>
 
-<div class="container">
+      <div class="team-highs">
+        <h3>Girard Team Highs</h3>
 
-<!-- GIRARD -->
-<div class="boxscore">
+        <div class="high-row">
+          <span>PTS</span>
+          <span id="girardPTSLeader">-</span>
+        </div>
 
-<h2>Girard Trojans</h2>
+        <div class="high-row">
+          <span>REB</span>
+          <span id="girardREBLeader">-</span>
+        </div>
 
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Player</th>
-<th>PTS</th>
-<th>FG</th>
-<th>3FG</th>
-<th>FT</th>
-<th>REB</th>
-<th>A</th>
-<th>PF</th>
-<th>TO</th>
-</tr>
-</thead>
+        <div class="high-row">
+          <span>AST</span>
+          <span id="girardASTLeader">-</span>
+        </div>
+      </div>
+    </div>
 
-<tbody id="girardRows"></tbody>
+    <div class="boxscore">
+      <h2>Osage City Indians</h2>
 
-</table>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Player</th>
+            <th>PTS</th>
+            <th>FG</th>
+            <th>3FG</th>
+            <th>FT</th>
+            <th>REB</th>
+            <th>A</th>
+            <th>PF</th>
+            <th>TO</th>
+          </tr>
+        </thead>
+        <tbody id="osageRows"></tbody>
+      </table>
 
-<div class="team-highs">
+      <div class="team-highs osage-highs">
+        <h3>Osage City Team Highs</h3>
 
-<h3>Girard Team Highs</h3>
+        <div class="high-row">
+          <span>PTS</span>
+          <span id="osagePTSLeader">-</span>
+        </div>
 
-<div class="high-row">
-<span>PTS</span>
-<span id="girardPTSLeader">-</span>
-</div>
+        <div class="high-row">
+          <span>REB</span>
+          <span id="osageREBLeader">-</span>
+        </div>
 
-<div class="high-row">
-<span>REB</span>
-<span id="girardREBLeader">-</span>
-</div>
+        <div class="high-row">
+          <span>AST</span>
+          <span id="osageASTLeader">-</span>
+        </div>
+      </div>
+    </div>
 
-<div class="high-row">
-<span>AST</span>
-<span id="girardASTLeader">-</span>
-</div>
+    <div class="controls">
+      <h2>Stat Controls</h2>
 
-</div>
+      <label for="teamSelect">Team</label>
+      <select id="teamSelect" onchange="updatePlayerSelect()">
+        <option value="girard">Girard Trojans</option>
+        <option value="osage">Osage City Indians</option>
+      </select>
 
-</div>
+      <label for="playerSelect">Player</label>
+      <select id="playerSelect"></select>
 
+      <button onclick="add2()">+2 PTS</button>
+      <button onclick="add3()">+3 PTS</button>
+      <button onclick="fgMiss()">FG Miss</button>
+      <button onclick="threeMiss()">3PT Miss</button>
+      <button onclick="ftMake()">FT Make</button>
+      <button onclick="ftMiss()">FT Miss</button>
+      <button onclick="reb()">REB</button>
+      <button onclick="ast()">AST</button>
+      <button onclick="pf()">PF</button>
+      <button onclick="turnover()">TO</button>
+    </div>
 
-<!-- OSAGE -->
-<div class="boxscore">
+  </div>
 
-<h2>Osage City Indians</h2>
-
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Player</th>
-<th>PTS</th>
-<th>FG</th>
-<th>3FG</th>
-<th>FT</th>
-<th>REB</th>
-<th>A</th>
-<th>PF</th>
-<th>TO</th>
-</tr>
-</thead>
-
-<tbody id="osageRows"></tbody>
-
-</table>
-
-<div class="team-highs">
-
-<h3>Osage City Team Highs</h3>
-
-<div class="high-row">
-<span>PTS</span>
-<span id="osagePTSLeader">-</span>
-</div>
-
-<div class="high-row">
-<span>REB</span>
-<span id="osageREBLeader">-</span>
-</div>
-
-<div class="high-row">
-<span>AST</span>
-<span id="osageASTLeader">-</span>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- CONTROLS -->
-<div class="controls">
-
-<h2>Stat Controls</h2>
-
-<select id="teamSelect" onchange="updatePlayerSelect()">
-<option value="girard">Girard Trojans</option>
-<option value="osage">Osage City Indians</option>
-</select>
-
-<select id="playerSelect"></select>
-
-<button onclick="add2()">+2 PTS</button>
-<button onclick="add3()">+3 PTS</button>
-
-<button onclick="fgMiss()">FG Miss</button>
-<button onclick="threeMiss()">3PT Miss</button>
-
-<button onclick="ftMake()">FT Make</button>
-<button onclick="ftMiss()">FT Miss</button>
-
-<button onclick="reb()">REB</button>
-<button onclick="ast()">AST</button>
-
-<button onclick="pf()">PF</button>
-<button onclick="turnover()">TO</button>
-
-</div>
-
-</div>
-
-<script src="script.js"></script>
-
+  <script src="script.js"></script>
 </body>
 </html>
