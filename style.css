@@ -17,24 +17,43 @@ gap:15px;
 height:60px;
 }
 
+.scoreboard{
+display:flex;
+justify-content:space-around;
+background:#111;
+color:white;
+padding:20px;
+font-size:28px;
+}
+
+.teamScore{
+text-align:center;
+}
+
+.gameInfo{
+font-size:22px;
+display:flex;
+align-items:center;
+}
+
 .container{
 display:flex;
-gap:25px;
+gap:20px;
 padding:20px;
 }
 
 .boxscore{
 background:white;
-padding:20px;
+padding:15px;
 border-radius:10px;
-width:65%;
+width:35%;
 }
 
 .controls{
 background:white;
 padding:20px;
 border-radius:10px;
-width:30%;
+width:25%;
 }
 
 table{
@@ -53,12 +72,6 @@ background:#800000;
 color:white;
 }
 
-tfoot{
-background:#333;
-color:white;
-font-weight:bold;
-}
-
 button{
 width:100%;
 padding:10px;
@@ -72,24 +85,4 @@ border-radius:6px;
 
 button:hover{
 opacity:.9;
-}
-
-.team-highs{
-background:#fafafa;
-margin-top:20px;
-padding:15px;
-border-radius:8px;
-}
-
-.team-highs h3{
-margin-top:0;
-color:#800000;
-}
-
-.high-row{
-display:flex;
-justify-content:space-between;
-padding:6px 0;
-border-bottom:1px solid #eee;
-font-weight:bold;
 }
