@@ -1,5 +1,4 @@
 let girardPlayers = [
-
 {num:1,name:"Madelyn Scheibe",pts:0,fgm:0,fga:0,threeM:0,threeA:0,ftm:0,fta:0,reb:0,ast:0,pf:0,to:0},
 {num:2,name:"Brilee Black",pts:0,fgm:0,fga:0,threeM:0,threeA:0,ftm:0,fta:0,reb:0,ast:0,pf:0,to:0},
 {num:3,name:"Avery Brooks",pts:0,fgm:0,fga:0,threeM:0,threeA:0,ftm:0,fta:0,reb:0,ast:0,pf:0,to:0},
@@ -10,11 +9,9 @@ let girardPlayers = [
 {num:14,name:"Maddie Coester",pts:0,fgm:0,fga:0,threeM:0,threeA:0,ftm:0,fta:0,reb:0,ast:0,pf:0,to:0},
 {num:15,name:"Quinn Poland",pts:0,fgm:0,fga:0,threeM:0,threeA:0,ftm:0,fta:0,reb:0,ast:0,pf:0,to:0},
 {num:21,name:"Regan Oplotnik",pts:0,fgm:0,fga:0,threeM:0,threeA:0,ftm:0,fta:0,reb:0,ast:0,pf:0,to:0}
-
 ];
 
 let osagePlayers = [
-
 {num:5,name:"Addison Watson",pts:0,fgm:0,fga:0,threeM:0,threeA:0,ftm:0,fta:0,reb:0,ast:0,pf:0,to:0},
 {num:24,name:"Alaynah Dorsey",pts:0,fgm:0,fga:0,threeM:0,threeA:0,ftm:0,fta:0,reb:0,ast:0,pf:0,to:0},
 {num:12,name:"Bryleigh Vandervord",pts:0,fgm:0,fga:0,threeM:0,threeA:0,ftm:0,fta:0,reb:0,ast:0,pf:0,to:0},
@@ -23,25 +20,19 @@ let osagePlayers = [
 {num:1,name:"Emory Speece",pts:0,fgm:0,fga:0,threeM:0,threeA:0,ftm:0,fta:0,reb:0,ast:0,pf:0,to:0},
 {num:22,name:"Harlie Tenbrink",pts:0,fgm:0,fga:0,threeM:0,threeA:0,ftm:0,fta:0,reb:0,ast:0,pf:0,to:0},
 {num:40,name:"Izzy Lyda",pts:0,fgm:0,fga:0,threeM:0,threeA:0,ftm:0,fta:0,reb:0,ast:0,pf:0,to:0}
-
 ];
 
 function render(){
-
 renderTeam(girardPlayers,"girardRows");
 renderTeam(osagePlayers,"osageRows");
-
 updatePlayerSelect();
 updateScoreboard();
-
+updateTeamHighs();
 }
 
 function renderTeam(team,element){
-
 let table="";
-
 team.forEach(p=>{
-
 table+=`
 <tr>
 <td>${p.num}</td>
@@ -56,149 +47,61 @@ table+=`
 <td>${p.to}</td>
 </tr>
 `;
-
 });
-
 document.getElementById(element).innerHTML=table;
-
 }
 
 function updatePlayerSelect(){
-
 let team=currentTeam();
-
 let select="";
-
 team.forEach((p,i)=>{
-
 select+=`<option value="${i}">#${p.num} ${p.name}</option>`;
-
 });
-
 document.getElementById("playerSelect").innerHTML=select;
-
 }
 
 function currentTeam(){
-
 let team=document.getElementById("teamSelect").value;
-
 return team==="girard"?girardPlayers:osagePlayers;
-
 }
 
 function selected(){
-
 let team=currentTeam();
 let index=document.getElementById("playerSelect").value;
-
 return team[index];
-
 }
 
-function add2(){
-
-let p=selected();
-
-p.pts+=2;
-p.fgm+=1;
-p.fga+=1;
-
-render();
-
-}
-
-function add3(){
-
-let p=selected();
-
-p.pts+=3;
-p.fgm+=1;
-p.fga+=1;
-p.threeM+=1;
-p.threeA+=1;
-
-render();
-
-}
-
-function fgMiss(){
-
-selected().fga+=1;
-
-render();
-
-}
-
-function threeMiss(){
-
-selected().threeA+=1;
-selected().fga+=1;
-
-render();
-
-}
-
-function ftMake(){
-
-let p=selected();
-
-p.pts+=1;
-p.ftm+=1;
-p.fta+=1;
-
-render();
-
-}
-
-function ftMiss(){
-
-selected().fta+=1;
-
-render();
-
-}
-
-function reb(){
-
-selected().reb+=1;
-
-render();
-
-}
-
-function ast(){
-
-selected().ast+=1;
-
-render();
-
-}
-
-function pf(){
-
-selected().pf+=1;
-
-render();
-
-}
-
-function turnover(){
-
-selected().to+=1;
-
-render();
-
-}
+function add2(){let p=selected();p.pts+=2;p.fgm+=1;p.fga+=1;render();}
+function add3(){let p=selected();p.pts+=3;p.fgm+=1;p.fga+=1;p.threeM+=1;p.threeA+=1;render();}
+function fgMiss(){selected().fga+=1;render();}
+function threeMiss(){selected().threeA+=1;selected().fga+=1;render();}
+function ftMake(){let p=selected();p.pts+=1;p.ftm+=1;p.fta+=1;render();}
+function ftMiss(){selected().fta+=1;render();}
+function reb(){selected().reb+=1;render();}
+function ast(){selected().ast+=1;render();}
+function pf(){selected().pf+=1;render();}
+function turnover(){selected().to+=1;render();}
 
 function updateScoreboard(){
-
 let girardScore=girardPlayers.reduce((sum,p)=>sum+p.pts,0);
 let osageScore=osagePlayers.reduce((sum,p)=>sum+p.pts,0);
-
 document.getElementById("girardScore").innerText=girardScore;
 document.getElementById("osageScore").innerText=osageScore;
+}
 
+function updateTeamHighs(){
+updateLeadersForTeam(girardPlayers,"girardPTSLeader","girardREBLeader","girardASTLeader");
+updateLeadersForTeam(osagePlayers,"osagePTSLeader","osageREBLeader","osageASTLeader");
+}
+
+function updateLeadersForTeam(team,ptsID,rebID,astID){
+let ptsLeader=team.reduce((a,b)=>a.pts>b.pts?a:b);
+let rebLeader=team.reduce((a,b)=>a.reb>b.reb?a:b);
+let astLeader=team.reduce((a,b)=>a.ast>b.ast?a:b);
+
+document.getElementById(ptsID).innerText=`#${ptsLeader.num} ${ptsLeader.name} (${ptsLeader.pts})`;
+document.getElementById(rebID).innerText=`#${rebLeader.num} ${rebLeader.name} (${rebLeader.reb})`;
+document.getElementById(astID).innerText=`#${astLeader.num} ${astLeader.name} (${astLeader.ast})`;
 }
 
 render();
